@@ -205,7 +205,7 @@ const ApplicationForm = ({ jobTitle }) => {
     
     if (!validateForm()) return;
     
-    const rawEndpoint = import.meta.env.VITE_CANDIDATES_ENDPOINT;
+    const rawEndpoint="http://job-portal-backend-mo0o0x-c1ad80-13-53-132-128.traefik.me/api/candidates/";
     // Ensure trailing slash for Django when APPEND_SLASH is True
     const endpoint = rawEndpoint && /\/$/.test(rawEndpoint) ? rawEndpoint : `${rawEndpoint || ''}/`;
     if (!rawEndpoint) {

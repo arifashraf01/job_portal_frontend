@@ -13,7 +13,7 @@ function createFile(content, name, type) {
 describe('ApplicationForm', () => {
   beforeEach(() => {
     // Stub the endpoint (without trailing slash to verify normalization)
-    vi.stubEnv('VITE_CANDIDATES_ENDPOINT', 'http://example.test/api/candidates');
+    vi.stubEnv('VITE_CANDIDATES_ENDPOINT','http://job-portal-backend-mo0o0x-c1ad80-13-53-132-128.traefik.me/api/candidates/');
     // Mock fetch
     vi.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
@@ -60,7 +60,7 @@ describe('ApplicationForm', () => {
     const [calledUrl, options] = global.fetch.mock.calls[0];
 
     // Expect normalized trailing slash
-    expect(calledUrl).toBe('http://example.test/api/candidates/');
+    expect(calledUrl).toBe('http://job-portal-backend-mo0o0x-c1ad80-13-53-132-128.traefik.me/api/candidates/');
     expect(options).toMatchObject({ method: 'POST' });
     expect(options.body).toBeInstanceOf(FormData);
 
